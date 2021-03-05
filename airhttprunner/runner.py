@@ -13,16 +13,16 @@ except ModuleNotFoundError:
 
 from loguru import logger
 
-from httprunner import utils, exceptions
-from httprunner.client import HttpSession
-from httprunner.exceptions import ValidationFailure, ParamsError
-from httprunner.ext.uploader import prepare_upload_step
-from httprunner.loader import load_project_meta, load_testcase_file
-from httprunner.parser import build_url, parse_data, parse_variables_mapping
-from httprunner.response import ResponseObject
-from httprunner.testcase import Config, Step
-from httprunner.utils import merge_variables
-from httprunner.models import (
+from airhttprunner import utils, exceptions
+from airhttprunner.client import HttpSession
+from airhttprunner.exceptions import ValidationFailure, ParamsError
+from airhttprunner.ext.uploader import prepare_upload_step
+from airhttprunner.loader import load_project_meta, load_testcase_file
+from airhttprunner.parser import build_url, parse_data, parse_variables_mapping
+from airhttprunner.response import ResponseObject
+from airhttprunner.testcase import Config, Step
+from airhttprunner.utils import merge_variables
+from airhttprunner.models import (
     TConfig,
     TStep,
     VariablesMapping,

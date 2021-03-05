@@ -7,12 +7,12 @@ import pytest
 from loguru import logger
 from sentry_sdk import capture_message
 
-from httprunner import __description__, __version__
-from httprunner.compat import ensure_cli_args
-from httprunner.ext.har2case import init_har2case_parser, main_har2case
-from httprunner.make import init_make_parser, main_make
-from httprunner.scaffold import init_parser_scaffold, main_scaffold
-from httprunner.utils import init_sentry_sdk
+from airhttprunner import __description__, __version__
+from airhttprunner.compat import ensure_cli_args
+from airhttprunner.ext.har2case import init_har2case_parser, main_har2case
+from airhttprunner.make import init_make_parser, main_make
+from airhttprunner.scaffold import init_parser_scaffold, main_scaffold
+from airhttprunner.utils import init_sentry_sdk
 
 init_sentry_sdk()
 

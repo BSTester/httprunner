@@ -11,9 +11,9 @@ from typing import Dict, List, Any, Union, Text
 import sentry_sdk
 from loguru import logger
 
-from httprunner import __version__
-from httprunner import exceptions
-from httprunner.models import VariablesMapping
+from airhttprunner import __version__
+from airhttprunner import exceptions
+from airhttprunner.models import VariablesMapping
 
 
 def init_sentry_sdk():

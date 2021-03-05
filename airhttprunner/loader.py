@@ -10,9 +10,9 @@ import yaml
 from loguru import logger
 from pydantic import ValidationError
 
-from httprunner import builtin, utils
-from httprunner import exceptions
-from httprunner.models import TestCase, ProjectMeta, TestSuite
+from airhttprunner import builtin, utils
+from airhttprunner import exceptions
+from airhttprunner.models import TestCase, ProjectMeta, TestSuite
 
 try:
     # PyYAML version >= 5.1

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from httprunner import __version__
+from airhttprunner import __version__
 from .routers import deps, debugtalk, debug
 
 app = FastAPI()

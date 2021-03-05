@@ -8,14 +8,14 @@ import jinja2
 from loguru import logger
 from sentry_sdk import capture_exception
 
-from httprunner import exceptions, __version__
-from httprunner.compat import (
+from airhttprunner import exceptions, __version__
+from airhttprunner.compat import (
     ensure_testcase_v3_api,
     ensure_testcase_v3,
     convert_variables,
     ensure_path_sep,
 )
-from httprunner.loader import (
+from airhttprunner.loader import (
     load_folder_files,
     load_test_file,
     load_testcase,
@@ -23,8 +23,8 @@ from httprunner.loader import (
     load_project_meta,
     convert_relative_project_root_dir,
 )
-from httprunner.response import uniform_validator
-from httprunner.utils import merge_variables, is_support_multiprocessing
+from airhttprunner.response import uniform_validator
+from airhttprunner.utils import merge_variables, is_support_multiprocessing
 
 """ cache converted pytest files, avoid duplicate making
 """
@@ -48,10 +48,10 @@ sys.path.insert(0, str(Path(__file__){% for _ in range(diff_levels) %}.parent{% 
 import pytest
 {% endif %}
 {% if parameters %}
-from httprunner import Parameters
+from airhttprunner import Parameters
 {% endif %}
 
-from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
+from airhttprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 {% for import_str in imports_list %}
 {{ import_str }}
 {% endfor %}

@@ -5,10 +5,10 @@ import requests
 from jmespath.exceptions import JMESPathError
 from loguru import logger
 
-from httprunner import exceptions
-from httprunner.exceptions import ValidationFailure, ParamsError
-from httprunner.models import VariablesMapping, Validators, FunctionsMapping
-from httprunner.parser import parse_data, parse_string_value, get_mapping_function
+from airhttprunner import exceptions
+from airhttprunner.exceptions import ValidationFailure, ParamsError
+from airhttprunner.models import VariablesMapping, Validators, FunctionsMapping
+from airhttprunner.parser import parse_data, parse_string_value, get_mapping_function
 
 
 def get_uniform_comparator(comparator: Text):

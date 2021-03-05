@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from httprunner.runner import HttpRunner
-from httprunner.models import ProjectMeta, TestCase
+from airhttprunner.runner import HttpRunner
+from airhttprunner.models import ProjectMeta, TestCase
 
 router = APIRouter()
 runner = HttpRunner()

@@ -46,8 +46,8 @@ import os
 import sys
 from typing import Text, NoReturn
 
-from httprunner.models import TStep, FunctionsMapping
-from httprunner.parser import parse_variables_mapping
+from airhttprunner.models import TStep, FunctionsMapping
+from airhttprunner.parser import parse_variables_mapping
 from loguru import logger
 
 try:
@@ -143,7 +143,7 @@ def multipart_encoder(**kwargs):
             is_exists_file = os.path.isfile(value)
         else:
             # value is not absolute file path, check if it is relative file path
-            from httprunner.loader import load_project_meta
+            from airhttprunner.loader import load_project_meta
 
             project_meta = load_project_meta("")
 

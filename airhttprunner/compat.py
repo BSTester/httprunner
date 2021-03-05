@@ -7,10 +7,10 @@ from typing import List, Dict, Text, Union, Any
 
 from loguru import logger
 
-from httprunner import exceptions
-from httprunner.loader import load_project_meta, convert_relative_project_root_dir
-from httprunner.parser import parse_data
-from httprunner.utils import sort_dict_by_custom_order
+from airhttprunner import exceptions
+from airhttprunner.loader import load_project_meta, convert_relative_project_root_dir
+from airhttprunner.parser import parse_data
+from airhttprunner.utils import sort_dict_by_custom_order
 
 
 def convert_variables(
@@ -295,7 +295,7 @@ import time
 import pytest
 from loguru import logger
 
-from httprunner.utils import get_platform, ExtendJSONEncoder
+from airhttprunner.utils import get_platform, ExtendJSONEncoder
 
 
 @pytest.fixture(scope="session", autouse=True)
