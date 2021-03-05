@@ -44,8 +44,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__){% for _ in range(diff_levels) %}.parent{% endfor %}))
 {% endif %}
 
-{% if parameters %}
+{% if parameters or order %}
 import pytest
+{% endif %}
+{% if parameters %}
 from httprunner import Parameters
 {% endif %}
 
@@ -56,10 +58,19 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class {{ class_name }}(HttpRunner):
 
-    {% if parameters %}
+    {% if parameters and order %}
+    {% if order is integer %}@pytest.mark.run(order={{order}}) {% else %}@pytest.mark.{{order}} {% endif %}
     @pytest.mark.parametrize("param", Parameters({{parameters}}))
     def test_start(self, param):
         super().test_start(param)
+    {% elif parameters %}
+    @pytest.mark.parametrize("param", Parameters({{parameters}}))
+    def test_start(self, param):
+        super().test_start(param)
+    {% elif order %}
+    {% if order is integer %}@pytest.mark.run(order={{order}}) {% else %}@pytest.mark.{{order}} {% endif %}
+    def test_start(self):
+        super().test_start()
     {% endif %}
 
     config = {{ config_chain_style }}
@@ -422,6 +433,7 @@ def make_testcase(testcase: Dict, dir_path: Text = None) -> Text:
         "imports_list": imports_list,
         "config_chain_style": make_config_chain_style(config),
         "parameters": config.get("parameters"),
+        "order": config.get("order"),
         "teststeps_chain_style": [
             make_teststep_chain_style(step) for step in teststeps
         ],
@@ -495,6 +507,18 @@ def make_testsuite(testsuite: Dict) -> NoReturn:
         # override weight
         if "weight" in testcase:
             testcase_dict["config"]["weight"] = testcase["weight"]
+
+        # override order
+        if "order" in testcase:
+            try:
+                if not isinstance(testcase.get('order'), int) and testcase.get('order') not in ('first', 'second', 'last', 'second_to_last'):
+                    raise exceptions.TestCaseFormatError('order is must be an number, or choise in "first", "second", "last" and "second_to_last"')
+                testcase_dict["config"]["order"] = testcase["order"]
+            except exceptions.TestCaseFormatError as ex:
+                logger.warning(
+                    f"Invalid order value: : {ex}"
+                )
+                break
 
         # make testcase
         testcase_pytest_path = make_testcase(testcase_dict, testsuite_dir)
