@@ -3,10 +3,12 @@
 
 
 import pytest
-from httprunner import Parameters
 
 
-from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
+from airhttprunner import Parameters
+
+
+from airhttprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 
 class TestCaseRequestWithParameters(HttpRunner):

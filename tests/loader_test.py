@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from httprunner import exceptions, loader
+from airhttprunner import exceptions, loader
 
 
 class TestLoader(unittest.TestCase):

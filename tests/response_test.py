@@ -2,7 +2,7 @@ import unittest
 
 import requests
 
-from httprunner.response import ResponseObject
+from airhttprunner.response import ResponseObject
 
 
 class TestResponse(unittest.TestCase):

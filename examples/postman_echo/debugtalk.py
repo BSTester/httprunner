@@ -1,4 +1,4 @@
-from httprunner import __version__
+from airhttprunner import __version__
 
 
 def get_httprunner_version():

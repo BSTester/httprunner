@@ -117,6 +117,7 @@ class HttpSession(requests.Session):
     """
 
     def __init__(self):
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         super(HttpSession, self).__init__()
         self.data = SessionData()
 

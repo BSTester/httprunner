@@ -1,7 +1,7 @@
 import os
 
-from httprunner.ext.har2case.core import HarParser
-from httprunner.ext.har2case.utils import load_har_log_entries
+from airhttprunner.ext.har2case.core import HarParser
+from airhttprunner.ext.har2case.utils import load_har_log_entries
 from tests.ext.har2case.har_utils_test import TestHar2CaseUtils
 
 

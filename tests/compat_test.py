@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from httprunner import compat, exceptions, loader
+from airhttprunner import compat, exceptions, loader
 
 
 class TestCompat(unittest.TestCase):

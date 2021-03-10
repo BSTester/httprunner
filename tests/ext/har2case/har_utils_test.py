@@ -2,7 +2,7 @@ import json
 import os
 import unittest
 
-from httprunner.ext.har2case import utils
+from airhttprunner.ext.har2case import utils
 
 
 class TestHar2CaseUtils(unittest.TestCase):
